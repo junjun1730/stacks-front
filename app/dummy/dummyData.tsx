@@ -1,18 +1,9 @@
-type DummyData = {
-  id: string;
-  name: string; //正式
-  nameEn: string;
-  nameHira: string;
-  nameKana: string;
-  techStacks: string[];
-  industry: string;
-  location: string;
-};
+import { CardData, CardDataList } from "../type/CardData";
 
-function dummyDataCreator(): DummyData[] {
-  const dummyData: DummyData[] = [];
+export function dummyDataCreator(): CardDataList {
+  const dummyData: CardDataList = [];
   for (let i = 0; i < 40; i++) {
-    const dummy: DummyData = {
+    const dummy: CardData = {
       id: `${i}`,
       name: `name${i}`, //正式
       nameEn: `nameEn${i}`,
@@ -33,5 +24,3 @@ function dummyDataCreator(): DummyData[] {
   }
   return dummyData;
 }
-
-const DUMMYDATA: DummyData[] = dummyDataCreator();

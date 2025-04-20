@@ -1,12 +1,15 @@
-import React, { FC } from "react";
-import Card from "./Card";
+import React from "react";
+import { CardDataList } from "../../type/CardData";
+import { getAllDummyData } from "../../actions/company/companyApis";
+import { Card } from "./Card";
 
-const CardList: FC = () => {
+export async function CardList() {
+  const cardData: CardDataList = await getAllDummyData();
   return (
     <div>
-      <Card />
+      <Card cardData={cardData} />
     </div>
   );
-};
+}
 
 export default CardList;
