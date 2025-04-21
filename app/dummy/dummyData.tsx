@@ -2,7 +2,7 @@ import { CardData, CardDataList } from "../type/CardData";
 
 export function dummyDataCreator(): CardDataList {
   const dummyData: CardDataList = [];
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 100; i++) {
     const dummy: CardData = {
       id: `${i}`,
       name: `name${i}`, //正式

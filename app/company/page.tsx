@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Header from "../component/company/Header";
 import Search from "../component/company/Search";
