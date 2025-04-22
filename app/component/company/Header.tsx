@@ -1,7 +1,9 @@
+"use client";
+
 import React, { FC } from "react";
 
-const Header: FC = () => {
-  return <div>Header</div>;
-};
+export function Header() {
+  return <h1>Logo</h1>;
+}
 
 export default Header;
