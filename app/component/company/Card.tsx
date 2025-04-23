@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { CardData, CardDataList } from "../../type/CardData";
+import { CardDataList } from "../../type/CardData";
 import Image from "next/image";
-import ShortCutIcon from "/public/assets/icon/shortcut-icon.svg";
+import "remixicon/fonts/remixicon.css";
 
 type CardDataProps = {
   cardData: CardDataList;
@@ -37,7 +37,7 @@ export function Card({ cardData }: CardDataProps) {
                     </div>
                   </div>
                   <div className="flex ml-auto">
-                    <ShortCutIcon className="w-4 h-4 opacity-30 self-center" />
+                    <i className="ri-share-box-line opacity-50 self-center"></i>
                   </div>
                 </div>
                 <div className="border border-gray-100"></div>
