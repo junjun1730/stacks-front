@@ -7,5 +7,5 @@ export default function CompnayLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="">{children}</div>;
+  return <div className="flex flex-col gap-2">{children}</div>;
 }
