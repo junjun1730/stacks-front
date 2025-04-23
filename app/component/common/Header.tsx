@@ -1,9 +1,10 @@
 "use client";
 
 import React, { FC } from "react";
+import { Logo } from "./Logo";
 
 export function Header() {
-  return <h1>Logo</h1>;
+  return <Logo />;
 }
 
 export default Header;
