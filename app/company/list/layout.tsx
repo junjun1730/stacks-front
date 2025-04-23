@@ -2,7 +2,7 @@ export const metadata = {
   title: "Companys",
 };
 
-export default function CompnayLayout({
+export default function CompanyLayout({
   children,
 }: {
   children: React.ReactNode;
