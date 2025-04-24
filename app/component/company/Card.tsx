@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { CardDataList } from "../../type/CardData";
 import Image from "next/image";
 import "remixicon/fonts/remixicon.css";
+import { Divider } from "../common/\bDivider";
 
 type CardDataProps = {
   cardData: CardDataList;
@@ -40,7 +41,7 @@ export function Card({ cardData }: CardDataProps) {
                     <i className="ri-share-box-line opacity-50 self-center"></i>
                   </div>
                 </div>
-                <div className="border border-gray-100"></div>
+                <Divider />
                 <div>
                   <span className="text-base font-light text-gray-400">
                     {"Language Total 4"}

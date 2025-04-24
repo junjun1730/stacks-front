@@ -10,6 +10,7 @@ export function Logo() {
       className="bg-transparent"
       width={100}
       height={100}
+      priority
     />
   );
 }
