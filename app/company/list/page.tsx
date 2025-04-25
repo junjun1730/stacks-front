@@ -4,12 +4,16 @@ import Header from "../../component/common/Header";
 import { Search } from "../../component/company/Search";
 import CardList from "../../component/company/CardList";
 import { Filter } from "../../component/company/Filter";
+import { AddCompanyButton } from "../../component/company/AddCompanyButton";
 
 export default function Company() {
   return (
     <>
       <Header />
-      <Search />
+      <div className="flex flex-row justify-between">
+        <Search />
+        <AddCompanyButton />
+      </div>
       <Filter />
       <CardList />
     </>
