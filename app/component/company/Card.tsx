@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { CardDataList } from "../../type/CardData";
 import Image from "next/image";
 import "remixicon/fonts/remixicon.css";
-import { Divider } from "../common/\bDivider";
+import { Divider } from "../common/Divider";
 
 type CardDataProps = {
   cardData: CardDataList;
