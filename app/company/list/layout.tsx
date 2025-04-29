@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Companys",
+  title: "Company",
 };
 
 export default function CompanyLayout({

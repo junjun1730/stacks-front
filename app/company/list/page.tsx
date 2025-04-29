@@ -9,7 +9,6 @@ import { AddCompanyButton } from "../../component/company/AddCompanyButton";
 export default function Company() {
   return (
     <>
-      <Header />
       <div className="flex flex-row justify-between">
         <Search />
         <AddCompanyButton />

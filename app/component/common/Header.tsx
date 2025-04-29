@@ -6,7 +6,7 @@ import { Divider } from "./Divider";
 
 export function Header() {
   return (
-    <div>
+    <div className="pb-4">
       <Logo />
       <Divider />
     </div>
