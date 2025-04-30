@@ -1,10 +1,25 @@
-import { StackSelectButton } from "./StackSelectButton";
+"use client";
 
-export function StackSelectArea() {
+import { useState } from "react";
+import { StackSelectList } from "./StackSelectList";
+import { ToggleButton } from "./ToggleButton";
+
+type StackSelectAreaProps = {
+  content: string;
+};
+
+export function StackSelectArea({ content }: StackSelectAreaProps) {
+  const [isSelected, setIsSelected] = useState<boolean>(false);
   return (
     <>
-      <StackSelectButton />
-      <div>StackSelectArea</div>
+      <div className="py-4">
+        <ToggleButton
+          isSelected={isSelected}
+          setIsSelected={setIsSelected}
+          text={content}
+        />
+        {isSelected && <StackSelectList />}
+      </div>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { dummyDataCreator } from "../../dummy/dummyData";
-import { CardData, CardDataList } from "../../type/CardData";
+import { CardData, CardDataList } from "../../type/company/CardData";
 
 export async function getAllDummyData(): Promise<CardDataList> {
   try {

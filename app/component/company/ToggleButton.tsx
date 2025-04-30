@@ -2,10 +2,15 @@
 
 type ToggleButtonProps = {
   isSelected: boolean;
-  setIsSeleted: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsSelected: React.Dispatch<React.SetStateAction<boolean>>;
+  text: string;
 };
 
-export function ToggleButton({ isSelected, setIsSelected }) {
+export function ToggleButton({
+  isSelected,
+  setIsSelected,
+  text,
+}: ToggleButtonProps) {
   const onClickHandler = () => {
     setIsSelected(!isSelected);
   };
@@ -15,7 +20,7 @@ export function ToggleButton({ isSelected, setIsSelected }) {
       onClick={onClickHandler}
       className="flex justify-between cursor-pointer py-6 px-3 hover:bg-gray-100 text-3xl w-full text-left font-bold focus:outline-none"
     >
-      <button className="">基本情報</button>
+      <button className="">{text}</button>
       <i
         className={`ri-arrow-down-s-line transition-transform duration-300 ${
           isSelected ? "rotate-180" : "rotate-0"
