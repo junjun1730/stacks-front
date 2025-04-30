@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Stacks",
+  icons: {
+    icon: "/assets/img/logo/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
