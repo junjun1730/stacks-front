@@ -1,5 +1,5 @@
 import React from "react";
-import { CardDataList } from "../../type/CardData";
+import { CardDataList } from "../../type/company/CardData";
 import { getAllDummyData } from "../../actions/company/companyApis";
 import { Card } from "./Card";
 

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { CardDataList } from "../../type/CardData";
+import { CardDataList } from "../../type/company/CardData";
 import Image from "next/image";
 import "remixicon/fonts/remixicon.css";
 import { Divider } from "../common/Divider";
