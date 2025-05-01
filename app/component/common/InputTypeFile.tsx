@@ -31,7 +31,11 @@ export function InputTypeFile({ name }: InputTypeFileProps) {
       <div onClick={onClickHandler} className="cursor-pointer">
         <div className=" border border-gray-400 w-24 h-24 rounded-2xl flex">
           {preview ? (
-            <img src={preview} alt="preview" className="object-cover" />
+            <img
+              src={preview}
+              alt="preview"
+              className="object-cover rounded-2xl "
+            />
           ) : (
             <i className="ri-add-line m-auto self-center"></i>
           )}

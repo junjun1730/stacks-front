@@ -9,7 +9,7 @@ import { ADD_CATEGORY } from "../../constants/company/AddCategory";
 
 export default function Add() {
   return (
-    <form className="border border-gray-400 rounded-2xl shadow p-6">
+    <form className="border border-gray-400 rounded-2xl shadow p-6 w-2/3 mx-auto">
       <InfoArea />
       <Divider />
       {ADD_CATEGORY.map((e, i) => {
