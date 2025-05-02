@@ -9,8 +9,13 @@ export function Input({ name, placeholder }: InputProps) {
   const [isChanged, setIsChanged] = useState<boolean>();
 
   return (
-    <div>
-      <input type="file" name={name} placeholder={placeholder} />
+    <div className="w-full md:w-1/2">
+      <input
+        type="text"
+        className="outline-none bg-gray-200 w-full rounded-2xl p-2"
+        name={name}
+        placeholder={placeholder}
+      />
     </div>
   );
 }

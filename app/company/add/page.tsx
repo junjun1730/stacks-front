@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { InfoArea } from "../../component/company/InfoArea";
 import { PrimaryButton } from "../../component/common/PrimaryButton";
 import { Divider } from "../../component/common/Divider";
