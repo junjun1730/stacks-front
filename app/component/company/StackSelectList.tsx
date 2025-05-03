@@ -1,31 +1,27 @@
+import { isError } from "util";
 import { StackSelectButton } from "./StackSelectButton";
+import { Stacks } from "../../type/company/Stacks";
 
-export function StackSelectList() {
-  const stackList = [
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    {
-      name: "googlecodebuild",
-      image: "/assets/img/stacks_logo/alamofire.png",
-    },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-    { name: "test5", image: "/assets/img/stacks_logo/alamofire.png" },
-  ];
+type StackSelectListProps = {
+  stackList: Stacks[];
+  isError: boolean;
+};
 
+export function StackSelectList({ isError, stackList }: StackSelectListProps) {
+  console.log(isError);
   return (
     <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
-      {stackList.map((e, i) => {
-        return <StackSelectButton key={i} name={e.name} imageSrc={e.image} />;
-      })}
+      {!isError
+        ? stackList.map((e, i) => {
+            return (
+              <StackSelectButton
+                key={i}
+                name={e.name}
+                imageSrc={"/assets/img/stacks_logo/" + e.image_url}
+              />
+            );
+          })
+        : "error"}
     </div>
   );
 }

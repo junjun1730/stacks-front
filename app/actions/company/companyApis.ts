@@ -1,16 +1,17 @@
-import { dummyDataCreator } from "../../dummy/dummyData";
-import { CardData, CardDataList } from "../../type/company/CardData";
+import { Stacks } from "../../type/company/Stacks";
+import { API_BASE_URL } from "../../util/apis";
 
-export async function getAllDummyData(): Promise<CardDataList> {
-  try {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(dummyDataCreator());
-      }, 1000);
-    });
-  } catch (e) {
-    throw new Error("Error: " + e);
-  } finally {
-    console.log("getAllDummyData finish");
+export const fetchStacks = async (): Promise<Stacks[]> => {
+  const response = await fetch(`${API_BASE_URL}/company/add`);
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText);
   }
-}
+  const data = await response.json();
+  return data.map(({ imageUrl, categoryId, ...rest }, i) => ({
+    ...rest,
+    image_url: imageUrl,
+    category_id: categoryId,
+  }));
+};

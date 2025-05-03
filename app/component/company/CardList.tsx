@@ -1,10 +1,9 @@
 import React from "react";
 import { CardDataList } from "../../type/company/CardData";
-import { getAllDummyData } from "../../actions/company/companyApis";
 import { Card } from "./Card";
 
 export async function CardList() {
-  const cardData: CardDataList = await getAllDummyData();
+  const cardData: CardDataList = null;
 
   // const [cardData, setCardData] = useState<CardDataList>(null);
 
