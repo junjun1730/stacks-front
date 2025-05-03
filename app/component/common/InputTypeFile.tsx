@@ -28,8 +28,8 @@ export function InputTypeFile({ name }: InputTypeFileProps) {
 
   return (
     <>
-      <div onClick={onClickHandler} className="cursor-pointer">
-        <div className=" border border-gray-400 w-24 h-24 rounded-2xl flex">
+      <div onClick={onClickHandler} className="cursor-pointer w-24">
+        <div className=" border border-gray-400 h-24 rounded-2xl flex">
           {preview ? (
             <img
               src={preview}
