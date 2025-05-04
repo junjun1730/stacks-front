@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
+import { useSelectedStackStore } from "../../store/useSelectedStackStore";
 
 type StackSelectButtonProps = {
+  id: number;
   name: string;
   imageSrc: string;
 };
 
-export function StackSelectButton({ name, imageSrc }: StackSelectButtonProps) {
+export function StackSelectButton({
+  id,
+  name,
+  imageSrc,
+}: StackSelectButtonProps) {
   const [isSelected, setIsSelected] = useState<boolean>(false);
+  const { push, pop } = useSelectedStackStore();
 
   return (
     <button
@@ -16,7 +23,13 @@ export function StackSelectButton({ name, imageSrc }: StackSelectButtonProps) {
           ? "border-blue-100 bg-blue-50"
           : "border-none hover:bg-gray-50"
       }`}
-      onClick={() => {
+      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+        if (isSelected) {
+          pop(id);
+        } else {
+          push(id);
+        }
+
         setIsSelected(!isSelected);
       }}
     >

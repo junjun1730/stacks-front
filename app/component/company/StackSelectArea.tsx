@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { StackSelectList } from "./StackSelectList";
 import { ToggleButton } from "./ToggleButton";
 import { useStackByCategories } from "../../util/hooks/company/useStackByCategories";
@@ -11,7 +11,7 @@ type StackSelectAreaProps = {
 };
 
 export function StackSelectArea({ text, id }: StackSelectAreaProps) {
-  const { data, isError } = useStackByCategories();
+  const { data, isLoading, isError } = useStackByCategories();
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   return (
@@ -22,8 +22,11 @@ export function StackSelectArea({ text, id }: StackSelectAreaProps) {
           setIsSelected={setIsSelected}
           text={text}
         />
-        {isSelected && (
+        {isLoading ? (
+          <div className="hidden">loading...</div>
+        ) : (
           <StackSelectList
+            isSelected={isSelected}
             stackList={data ? data[id] : null}
             isError={isError}
           />

@@ -5,8 +5,9 @@ import { Stacks } from "../../../type/company/Stacks";
 export function useStackByCategories() {
   return useQuery({
     queryKey: ["stacks"],
-    queryFn: fetchStacks, // Stack[] 배열을 받아옴
-    select: groupById, // 여기서 Stack[] → Record<number, Stack[]>로 변환})
+    queryFn: fetchStacks, // Stack[]
+    select: groupById, // Stack[] → Record<number, Stack[]>変換})
+    staleTime: Infinity,
   });
 }
 
