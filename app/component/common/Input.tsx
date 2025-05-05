@@ -6,8 +6,6 @@ type InputProps = {
 };
 
 export function Input({ name, placeholder }: InputProps) {
-  const [isChanged, setIsChanged] = useState<boolean>();
-
   return (
     <div className="w-full md:w-1/2">
       <input

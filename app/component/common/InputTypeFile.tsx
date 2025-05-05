@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { BasicInfoForm } from "../../type/company/BasicInfoForm";
 
 type InputTypeFileProps = {
-  name: string;
+  name: keyof BasicInfoForm;
 };
 
 export function InputTypeFile({ name }: InputTypeFileProps) {

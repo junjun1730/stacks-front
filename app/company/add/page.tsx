@@ -6,7 +6,6 @@ import { PrimaryButton } from "../../component/common/PrimaryButton";
 import { Divider } from "../../component/common/Divider";
 import { StackSelectArea } from "../../component/company/StackSelectArea";
 import { ADD_CATEGORY } from "../../constants/company/AddCategory";
-import { useSelectedStackStore } from "../../store/useSelectedStackStore";
 
 export default function Add() {
   return (

@@ -5,6 +5,7 @@ import { ToggleButton } from "./ToggleButton";
 import { Label } from "../common/Label";
 import { InputTypeFile } from "../common/InputTypeFile";
 import { Input } from "../common/Input";
+import { Dropdown } from "../common/Dropdown";
 
 export function InfoArea() {
   const [isSelected, setIsSelected] = useState<boolean>(false);
@@ -30,7 +31,7 @@ export function InfoArea() {
         <Label htmlFor={"location"} text={"所在地"} required={true} />
         <Input name="location" placeholder="所在地を入力してください。" />
         <Label htmlFor={"industry"} text={"業界"} required={true} />
-        <Input name="industry" placeholder="業界を入力してください。" />
+        <Dropdown name="industry" />
         <Label htmlFor={"url"} text={"ホームページ"} required={true} />
         <Input name="url" placeholder="ホームページURLを入力してください。" />
       </div>
