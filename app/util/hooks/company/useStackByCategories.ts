@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchStacks } from "../../../actions/company/companyApis";
+import { getStacks } from "../../../actions/company/companyApis";
 import { Stacks } from "../../../type/company/Stacks";
 
 export function useStackByCategories() {
   return useQuery({
     queryKey: ["stacks"],
-    queryFn: fetchStacks, // Stack[]
+    queryFn: getStacks, // Stack[]
     select: groupById, // Stack[] → Record<number, Stack[]>変換})
     staleTime: Infinity,
   });

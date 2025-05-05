@@ -1,5 +1,5 @@
 export type BasicInfoForm = {
-  logo: string;
+  logo: File;
   name: string;
   nameEn: string;
   location: string;

@@ -11,7 +11,7 @@ type BasicInfoFormState = {
 
 export const useFormInputStore = create<BasicInfoFormState>((set) => ({
   inputForm: {
-    logo: "",
+    logo: null,
     name: "",
     nameEn: "",
     location: "",

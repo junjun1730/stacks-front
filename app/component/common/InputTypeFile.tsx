@@ -3,12 +3,14 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { BasicInfoForm } from "../../type/company/BasicInfoForm";
+import { useFormInputStore } from "../../store/useFormInputStore";
 
 type InputTypeFileProps = {
   name: keyof BasicInfoForm;
 };
 
 export function InputTypeFile({ name }: InputTypeFileProps) {
+  const { onChange } = useFormInputStore();
   const [preview, setPreview] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -20,6 +22,7 @@ export function InputTypeFile({ name }: InputTypeFileProps) {
         setPreview(reader.result as string);
       };
       reader.readAsDataURL(file);
+      onChange(name, file);
     }
   };
 
