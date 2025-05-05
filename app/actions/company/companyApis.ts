@@ -22,6 +22,7 @@ export const addCompany = async (
   seletedStacks: number[]
 ): Promise<string> => {
   const response = await fetch(`${API_BASE_URL}/company/add`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
