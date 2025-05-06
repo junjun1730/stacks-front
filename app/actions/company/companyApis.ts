@@ -19,17 +19,33 @@ export const getStacks = async (): Promise<Stacks[]> => {
 
 export const addCompany = async (
   basicInfoForm: BasicInfoForm,
-  seletedStacks: number[]
+  selectedStacks: number[]
 ): Promise<string> => {
+  const formData = new FormData();
+
+  formData.append("logo", basicInfoForm.logo);
+
+  const basicInfo = {
+    companyName: basicInfoForm.name,
+    companyNameEn: basicInfoForm.nameEn,
+    companyNameYomi: basicInfoForm.nameYomi,
+    location: basicInfoForm.location,
+    industry: basicInfoForm.industry,
+    homepage: basicInfoForm.url,
+  };
+
+  formData.append(
+    "basicInfo",
+    new Blob([JSON.stringify(basicInfo)], { type: "application/json" })
+  );
+  formData.append(
+    "stacks",
+    new Blob([JSON.stringify(selectedStacks)], { type: "application/json" })
+  );
+
   const response = await fetch(`${API_BASE_URL}/company/add`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      basicInfo: basicInfoForm,
-      stacks: seletedStacks,
-    }),
+    body: formData,
   });
 
   if (!response.ok) {

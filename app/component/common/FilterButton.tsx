@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type CategoryButtonProps = {
   filterValue: string;
@@ -12,9 +12,6 @@ export function FilterButton({ filterValue }: CategoryButtonProps) {
     setSelected(!selected);
   };
 
-  useEffect(() => {
-    console.log("Filter Button Selected!");
-  }, [selected]);
   return (
     <input
       onClick={FilterButton}

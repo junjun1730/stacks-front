@@ -14,6 +14,7 @@ export const useFormInputStore = create<BasicInfoFormState>((set) => ({
     logo: null,
     name: "",
     nameEn: "",
+    nameYomi: "",
     location: "",
     industry: null,
     url: "",

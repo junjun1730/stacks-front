@@ -28,6 +28,11 @@ export function InfoArea() {
         <Input name="name" placeholder="企業名を入力してください。" />
         <Label htmlFor={"nameEn"} text={"企業名（英語）"} required={true} />
         <Input name="nameEn" placeholder="企業名（英語）を入力してください。" />
+        <Label htmlFor={"nameYomi"} text={"企業名（ふり）"} />
+        <Input
+          name="nameYomi"
+          placeholder="企業名（ふり）を入力してください。"
+        />
         <Label htmlFor={"location"} text={"所在地"} required={true} />
         <Input name="location" placeholder="所在地を入力してください。" />
         <Label htmlFor={"industry"} text={"業界"} required={true} />
