@@ -21,17 +21,19 @@ export const addCompany = async (
   basicInfoForm: BasicInfoForm,
   selectedStacks: number[]
 ): Promise<string> => {
+  const { logo, name, nameEn, nameYomi, location, industry, url } =
+    basicInfoForm;
   const formData = new FormData();
 
-  formData.append("logo", basicInfoForm.logo);
+  formData.append("logo", logo);
 
   const basicInfo = {
-    companyName: basicInfoForm.name,
-    companyNameEn: basicInfoForm.nameEn,
-    companyNameYomi: basicInfoForm.nameYomi,
-    location: basicInfoForm.location,
-    industry: basicInfoForm.industry,
-    homepage: basicInfoForm.url,
+    companyName: name,
+    companyNameEn: nameEn,
+    companyNameYomi: nameYomi,
+    location: location,
+    industry: industry,
+    homepage: url,
   };
 
   formData.append(
@@ -49,10 +51,11 @@ export const addCompany = async (
   });
 
   if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || "サーバーエラーが発生しました。");
+    const error = await response.text();
+    throw new Error(error || "サーバーエラーが発生しました。");
   }
 
-  const result: string = await response.json();
+  const result: string = await response.text();
+  console.log(result);
   return result;
 };
