@@ -1,33 +1,11 @@
 import { useState } from "react";
 import { useFormInputStore } from "../../store/useFormInputStore";
 import { BasicInfoForm } from "../../type/company/BasicInfoForm";
+import { industries } from "../../constants/company/industry";
 
 type InputProps = {
   name: keyof BasicInfoForm;
 };
-
-type Option = {
-  id: number;
-  label: string;
-};
-
-const options = getOptions();
-
-function getOptions(): Option[] {
-  const industries = [
-    "業界を選択してください。",
-    "IT・ソフトウェア",
-    "金融",
-    "製造業",
-    "医療",
-    "教育",
-    "人事労務",
-    "メディア",
-    "ブロックチェーン",
-    "交通",
-  ];
-  return industries.map((label, i: number) => ({ id: i + 1, label }));
-}
 
 export function Dropdown({ name }: InputProps) {
   const { onChange } = useFormInputStore();
@@ -40,7 +18,8 @@ export function Dropdown({ name }: InputProps) {
         }}
         name={name}
       >
-        {options.map((e) => {
+        <option value={null}>{"業界を選択してください。"}</option>
+        {industries.map((e) => {
           return (
             <option key={e.id} value={e.id}>
               {e.label}

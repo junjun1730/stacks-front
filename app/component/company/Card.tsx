@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { CardDataList } from "../../type/company/CardData";
+import React from "react";
+import { CardData } from "../../type/company/CardData";
 import Image from "next/image";
 import "remixicon/fonts/remixicon.css";
 import { Divider } from "../common/Divider";
 
 type CardDataProps = {
-  cardData: CardDataList;
+  cardData: CardData[];
 };
 
 export function Card({ cardData }: CardDataProps) {

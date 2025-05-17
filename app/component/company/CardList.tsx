@@ -1,9 +1,9 @@
 import React from "react";
-import { CardDataList } from "../../type/company/CardData";
 import { Card } from "./Card";
+import { CardData } from "../../type/company/CardData";
 
 export async function CardList() {
-  const cardData: CardDataList = null;
+  const cardData: CardData[] = null;
 
   return (
     <div>

@@ -8,5 +8,3 @@ export type CardData = {
   industry: string;
   location: string;
 };
-
-export type CardDataList = CardData[];

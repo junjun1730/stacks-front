@@ -8,7 +8,7 @@ import { Input } from "../common/Input";
 import { Dropdown } from "../common/Dropdown";
 
 export function InfoArea() {
-  const [isSelected, setIsSelected] = useState<boolean>(false);
+  const [isSelected, setIsSelected] = useState<boolean>(true);
   return (
     <div className="py-4">
       <ToggleButton

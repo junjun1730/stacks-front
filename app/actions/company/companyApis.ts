@@ -56,6 +56,5 @@ export const addCompany = async (
   }
 
   const result: string = await response.text();
-  console.log(result);
   return result;
 };
