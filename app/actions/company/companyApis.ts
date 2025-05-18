@@ -2,7 +2,7 @@ import { BasicInfoForm } from "../../type/company/BasicInfoForm";
 import { Stacks } from "../../type/company/Stacks";
 import { API_BASE_URL } from "../../util/apis";
 
-export const getStacks = async (): Promise<Stacks[]> => {
+export const getAllStacks = async (): Promise<Stacks[]> => {
   const response = await fetch(`${API_BASE_URL}/company/add`);
 
   if (!response.ok) {
@@ -17,15 +17,24 @@ export const getStacks = async (): Promise<Stacks[]> => {
   }));
 };
 
+export const getAllCompanies = async () => {
+  const response = await fetch(`${API_BASE_URL}/company/list`);
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText);
+  }
+  const data = await response.text();
+  console.log(data);
+};
+
 export const addCompany = async (
   basicInfoForm: BasicInfoForm,
   selectedStacks: number[]
 ): Promise<string> => {
+  const formData = new FormData();
   const { logo, name, nameEn, nameYomi, location, industry, url } =
     basicInfoForm;
-  const formData = new FormData();
-
-  formData.append("logo", logo);
 
   const basicInfo = {
     companyName: name,
@@ -35,6 +44,8 @@ export const addCompany = async (
     industry: industry,
     homepage: url,
   };
+
+  formData.append("logo", logo);
 
   formData.append(
     "basicInfo",
