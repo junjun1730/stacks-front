@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { CardData } from "../../type/company/CardData";
 import Image from "next/image";
@@ -16,13 +18,13 @@ export function Card({ cardData }: CardDataProps) {
             <div
               className="rounded-lg border border-gray-300 p-2 hover:scale-100 
               hover:translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer"
-              key={i}
+              key={e.id}
             >
               <div className="p-4 flex-col flex gap-3">
                 <div className="flex flex-row gap-2">
                   <div>
                     <Image
-                      src={"/assets/img/company/1674.png"}
+                      src={`/assets/img/company/${e.image}`}
                       alt={`${e.id}logo`}
                       width={60}
                       height={60}
@@ -49,11 +51,11 @@ export function Card({ cardData }: CardDataProps) {
                 </div>
                 <div className="flex flex-row gap-2">
                   <div className="flex flex-row">
-                    {[1, 2, 3, 4].map((e, i) => {
+                    {e.techStacks.map((e, i) => {
                       return (
                         <Image
                           key={i}
-                          src={`/assets/img/stacks/optimize (${e}).webp`}
+                          src={`/assets/img/stacks_logo/${e.imageUrl}`}
                           alt={`${i}stackslogo`}
                           width={30}
                           height={30}

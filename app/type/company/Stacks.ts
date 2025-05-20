@@ -1,6 +1,6 @@
 export type Stacks = {
   id: number;
   name: string;
-  image_url: string;
+  imageUrl: string;
   category_id: number;
 };

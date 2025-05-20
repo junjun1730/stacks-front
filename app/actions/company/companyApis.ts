@@ -1,4 +1,5 @@
 import { BasicInfoForm } from "../../type/company/BasicInfoForm";
+import { CardData } from "../../type/company/CardData";
 import { Stacks } from "../../type/company/Stacks";
 import { API_BASE_URL } from "../../util/apis";
 
@@ -17,15 +18,15 @@ export const getAllStacks = async (): Promise<Stacks[]> => {
   }));
 };
 
-export const getAllCompanies = async () => {
+export const getAllCompanies = async (): Promise<CardData[]> => {
   const response = await fetch(`${API_BASE_URL}/company/list`);
 
   if (!response.ok) {
     const errorText = await response.text();
     throw new Error(errorText);
   }
-  const data = await response.text();
-  console.log(data);
+  const data = await response.json();
+  return data;
 };
 
 export const addCompany = async (
@@ -43,6 +44,7 @@ export const addCompany = async (
     location: location,
     industry: industry,
     homepage: url,
+    selectedStacks: selectedStacks,
   };
 
   formData.append("logo", logo);
@@ -50,10 +52,6 @@ export const addCompany = async (
   formData.append(
     "basicInfo",
     new Blob([JSON.stringify(basicInfo)], { type: "application/json" })
-  );
-  formData.append(
-    "stacks",
-    new Blob([JSON.stringify(selectedStacks)], { type: "application/json" })
   );
 
   const response = await fetch(`${API_BASE_URL}/company/add`, {

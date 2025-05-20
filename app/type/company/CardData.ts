@@ -1,10 +1,13 @@
+import { Industry } from "./Industry";
+import { Stacks } from "./Stacks";
+
 export type CardData = {
-  id: string;
+  id: number;
   name: string; //正式
   nameEn: string;
-  nameHira: string;
   nameKana: string;
-  techStacks: string[];
-  industry: string;
+  techStacks: Stacks[];
+  industry: Industry;
   location: string;
+  image: string;
 };

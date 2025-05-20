@@ -1,13 +1,19 @@
+"use client";
+
 import React from "react";
 import { Card } from "./Card";
-import { CardData } from "../../type/company/CardData";
+import { useQuery } from "@tanstack/react-query";
+import { getAllCompanies } from "../../actions/company/companyApis";
 
-export async function CardList() {
-  const cardData: CardData[] = null;
+export function CardList() {
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["companies"],
+    queryFn: getAllCompanies,
+  });
 
   return (
     <div>
-      <Card cardData={cardData} />
+      <Card cardData={data} />
     </div>
   );
 }
