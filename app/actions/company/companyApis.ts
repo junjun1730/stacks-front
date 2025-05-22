@@ -1,5 +1,5 @@
 import { BasicInfoForm } from "../../type/company/BasicInfoForm";
-import { CardData } from "../../type/company/CardData";
+import { Company } from "../../type/company/Company";
 import { Stacks } from "../../type/company/Stacks";
 import { API_BASE_URL } from "../../util/apis";
 
@@ -18,7 +18,7 @@ export const getAllStacks = async (): Promise<Stacks[]> => {
   }));
 };
 
-export const getAllCompanies = async (): Promise<CardData[]> => {
+export const getAllCompanies = async (): Promise<Company[]> => {
   const response = await fetch(`${API_BASE_URL}/company/list`);
 
   if (!response.ok) {

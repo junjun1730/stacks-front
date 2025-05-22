@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import { CardData } from "../../type/company/CardData";
+import { Company } from "../../type/company/Company";
 import Image from "next/image";
 import "remixicon/fonts/remixicon.css";
 import { Divider } from "../common/Divider";
 
 type CardDataProps = {
-  cardData: CardData[];
+  cardData: Company[];
 };
 
 export function Card({ cardData }: CardDataProps) {
