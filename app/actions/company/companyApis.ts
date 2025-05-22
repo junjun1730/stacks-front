@@ -67,3 +67,15 @@ export const addCompany = async (
   const result: string = await response.text();
   return result;
 };
+
+export const getCompany = async (id: number): Promise<Company> => {
+  const response = await fetch(`${API_BASE_URL}/company/${id}`, {
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText);
+  }
+  return await response.json();
+};

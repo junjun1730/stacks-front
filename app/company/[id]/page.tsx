@@ -1,9 +1,20 @@
-"use client";
-
-import { usePathname } from "next/navigation";
 import React from "react";
+import { getCompany } from "../../actions/company/companyApis";
+import { notFound } from "next/navigation";
 
-export default function CompanyById() {
-  const pathname = usePathname();
-  return <div>{pathname}</div>;
+type CompanyDetailPageProps = {
+  params: { id: string };
+};
+
+export const dynamic = "force-dynamic"; // SSR 강제
+
+export default async function CompanyDetailPage({
+  params,
+}: CompanyDetailPageProps) {
+  const company = await getCompany(Number(params.id));
+  if (!company) {
+    notFound();
+  }
+
+  return <div>{company.name}</div>;
 }
