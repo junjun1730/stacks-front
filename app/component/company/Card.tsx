@@ -20,7 +20,7 @@ export function Card({ cardData }: CardDataProps) {
               hover:translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer"
               key={e.id}
             >
-              <div className="p-4 flex-col flex gap-3">
+              <div className="p-4 flex-col flex gap-5">
                 <div className="flex flex-row gap-2">
                   <div>
                     <Image
@@ -45,30 +45,34 @@ export function Card({ cardData }: CardDataProps) {
                 </div>
                 <Divider />
                 <div>
-                  <span className="text-base font-light text-gray-400">
-                    {"Language Total 4"}
+                  <span className="text-sm font-light text-gray-400">
+                    total : {e.techStacks.length} stacks
                   </span>
                 </div>
-                <div className="flex flex-row gap-2">
-                  <div className="flex flex-row">
-                    {e.techStacks.map((e, i) => {
-                      return (
-                        <Image
-                          key={i}
-                          src={`/assets/img/stacks_logo/${e.imageUrl}`}
-                          alt={`${i}stackslogo`}
-                          width={30}
-                          height={30}
-                          className="border border-gray-100 rounded-lg"
-                        />
-                      );
-                    })}
-                  </div>
-                  <div>
-                    <span className="text-base font-extralight text-gray-400">
-                      {"+ 50stacks"}
-                    </span>
-                  </div>
+                <div className="flex flex-row gap-2.5">
+                  {e.techStacks.length > 6 ? (
+                    <div className="flex flex-row gap-1.5">
+                      {e.techStacks.slice(0, 6).map((e, i) => {
+                        return (
+                          <Image
+                            key={e.id}
+                            src={`/assets/img/stacks_logo/${e.imageUrl}`}
+                            alt={`${i}stackslogo`}
+                            width={35}
+                            height={35}
+                            className="border border-gray-100 rounded-lg"
+                          />
+                        );
+                      })}
+                      <div className="flex items-center">
+                        <span className="text-base text-sm font-extralight text-gray-400">
+                          + {e.techStacks.length - 6} stacks
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>
