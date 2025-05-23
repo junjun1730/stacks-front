@@ -1,4 +1,4 @@
-export const ADD_CATEGORY = [
+export const STACK_CATEGORY = [
   { name: "PROGRAMMING", id: 2 },
   { name: "FRONTEND", id: 5 },
   { name: "BACKEND", id: 1 },

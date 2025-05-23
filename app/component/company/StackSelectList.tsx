@@ -25,7 +25,7 @@ export function StackSelectList({
               key={i}
               id={e.id}
               name={e.name}
-              imageSrc={"/assets/img/stacks_logo/" + e.image_url}
+              imageSrc={"/assets/img/stacks_logo/" + e.imageUrl}
             />
           );
         })
