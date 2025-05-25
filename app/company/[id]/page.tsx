@@ -3,6 +3,7 @@ import { getCompany } from "../../actions/company/companyApis";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { STACK_CATEGORY } from "../../constants/company/stack-category";
+import { StackCategoryNav } from "../../component/company/stackCategoryNav";
 
 type CompanyDetailPageProps = {
   params: { id: string };
@@ -14,6 +15,7 @@ export default async function CompanyDetailPage({
   params,
 }: CompanyDetailPageProps) {
   const company = await getCompany(Number(params.id));
+
   if (!company) {
     notFound();
   }
@@ -43,21 +45,23 @@ export default async function CompanyDetailPage({
       </section>
       <section>
         <h2>Stacks</h2>
-        <div>
-          <div className="flex gap-2 overflow-auto scrollbar-hide">
-            {STACK_CATEGORY.map((e, i) => {
-              return <button key={e.id}>{e.name}</button>;
-            })}
-          </div>
-          <div className="flex gap-2 overflow-auto scrollbar-hide">
+        <div className="border-gray-100 border rounded-2xl p-2">
+          <StackCategoryNav />
+          <div className="flex gap-2 flex-wrap">
             {company.techStacks.map((e, i) => {
               return (
-                <Image
+                <div
                   key={i}
-                  src={`/assets/img/stacks_logo/${e.imageUrl}`}
-                  width={30}
-                  height={30}
-                />
+                  className="flex items-center border border-gray-200 rounded-2xl pl-2 pr-2"
+                >
+                  <Image
+                    src={`/assets/img/stacks_logo/${e.imageUrl}`}
+                    width={30}
+                    height={30}
+                    alt={`${e.name}`}
+                  />
+                  <p>{e.name}</p>
+                </div>
               );
             })}
           </div>
